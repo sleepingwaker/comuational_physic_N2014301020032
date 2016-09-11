@@ -1,6 +1,6 @@
 # comuational_physic_N2014301020032
 ###homework
-#### + [x] [Exercise_01:prepare]()
+#### - [x] [Exercise_01:prepare]()
 ####[Exercise_02:none]()
 ####[Exercise_03:all levels]()
 ####[Exercise_04:the decay of two kinds of particles]()
