@@ -2,7 +2,7 @@
 ###homework
 - [x] [Exercise_01:prepare]()  
 - [x] [Exercise_02:print my name](https://github.com/sleepingwaker/comuational_physic_N2014301020032/blob/master/untitled2.py)  
-- [ ] [Exercise_03:moving and rotation]()  
+- [x] [Exercise_03:moving and rotation](https://github.com/sleepingwaker/comuational_physic_N2014301020032/tree/master/exercise-03)  
 - [ ] [Exercise_04:the decay of two kinds of particles]()
 - [ ] [Exercise_05:population growth]()
 - [ ] [Exercise_06:the cannon]()
