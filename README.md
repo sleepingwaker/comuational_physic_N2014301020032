@@ -3,7 +3,7 @@
 - [x] [Exercise_01:prepare]()  
 - [x] [Exercise_02:print my name](https://github.com/sleepingwaker/comuational_physic_N2014301020032/blob/master/untitled2.py)  
 - [x] [Exercise_03:moving and rotation](https://github.com/sleepingwaker/comuational_physic_N2014301020032/tree/master/exercise-03)  
-- [ ] [Exercise_04:the decay of two kinds of particles]()
+- [x] [Exercise_04:the decay of two kinds of particles](https://github.com/sleepingwaker/comuational_physic_N2014301020032/tree/master/Exercise_04)
 - [ ] [Exercise_05:population growth]()
 - [ ] [Exercise_06:the cannon]()
 - [ ] [Exercise_07:the spin of baseball and visual motion of base]()
