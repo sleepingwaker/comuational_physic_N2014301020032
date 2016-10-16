@@ -4,7 +4,7 @@
 - [x] [Exercise_02:print my name](https://github.com/sleepingwaker/comuational_physic_N2014301020032/blob/master/untitled2.py)  
 - [x] [Exercise_03:moving and rotation](https://github.com/sleepingwaker/comuational_physic_N2014301020032/tree/master/exercise-03)  
 - [x] [Exercise_04:the decay of two kinds of particles](https://github.com/sleepingwaker/comuational_physic_N2014301020032/tree/master/Exercise_04)
-- [ ] [Exercise_05:population growth]()
+- [x] [Exercise_05:the trajectory of cannon shell](https://github.com/sleepingwaker/comuational_physic_N2014301020032/tree/master/exercise_05)
 - [ ] [Exercise_06:the cannon]()
 - [ ] [Exercise_07:the spin of baseball and visual motion of base]()
 - [ ] [Exercise_08:non-linear oscillator]()
