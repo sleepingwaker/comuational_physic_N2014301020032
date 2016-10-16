@@ -1,0 +1,133 @@
+import pylab as pl
+
+
+class cannonshell:
+    ###the class to analysis the trajectory of the cannonshell whether the different air had been considered
+    def __init__(self, speed_of_x = 0, speed_of_y = 0, position_of_x = 0, position_of_y = 0, time_of_duration = 50, time_step = 0.05, mass_of_shell = 1):
+        ###the unit of time is second
+        speed_of_x = float(input('please input the inital speed of x(m/s)：\n'))
+        speed_of_y = float(input('please input the inital speed of y(m/s)：\n'))
+        mass_of_shell = float(input('please input the mass of shell(kg)：\n'))
+        ###set initial speed and mass
+        
+        self.m = mass_of_shell
+        self.v_x = [speed_of_x]
+        self.v_y = [speed_of_y]
+        self.r_x = [position_of_x]
+        self.r_y = [position_of_y]
+        self.t = [0]
+        self.dt = time_step
+        self.time = time_of_duration
+        self.nsteps = int(time_of_duration // time_step + 1)
+        
+    
+    
+    def calculate0(self):
+        ###no air drag
+        for i in range(self.nsteps):
+            tmpvx = self.v_x[i] + (0) * self.dt
+            tmpvy = self.v_y[i] + (-10) * self.dt
+            tmprx = self.r_x[i] + (tmpvx) * self.dt
+            tmpry = self.r_y[i] + (tmpvy) * self.dt
+            if tmpry > 0:
+                self.v_x.append(tmpvx)
+                self.v_y.append(tmpvy)
+                self.r_x.append(tmprx)
+                self.r_y.append(tmpry)
+                self.t.append(self.t[i] + self.dt)
+            else:
+                t_over = self.r_y[i] / self.v_y[i]
+                self.v_x.append(self.v_x[i])
+                self.v_y.append(self.v_y[i])
+                self.r_x.append(self.r_x[i] + self.v_x[i] * t_over)
+                self.r_y.append(0)
+                self.t.append(self.t[i] + t_over)
+                break
+                
+    
+    def calculate1(self):
+        ###have air drag but no effect of air desity
+        b2 = float(input('please input the constant number of air drag force\n'))
+        for i in range(self.nsteps):
+            tmpv = (self.v_x[i] ** 2 + self.v_y[i] ** 2) ** 0.5
+            tmpvx = self.v_x[i] + (-(b2 / self.m) * tmpv * self.v_x[i]) * self.dt
+            tmpvy = self.v_y[i] + (-10 - (b2 / self.m) * tmpv * self.v_y[i]) * self.dt
+            tmprx = self.r_x[i] + (tmpvx) * self.dt
+            tmpry = self.r_y[i] + (tmpvy) * self.dt
+            if tmpry > 0:
+                self.v_x.append(tmpvx)
+                self.v_y.append(tmpvy)
+                self.r_x.append(tmprx)
+                self.r_y.append(tmpry)
+                self.t.append(self.t[i] + self.dt)
+            else:
+                t_over = self.r_y[i] / self.v_y[i]
+                self.v_x.append(self.v_x[i])
+                self.v_y.append(self.v_y[i])
+                self.r_x.append(self.r_x[i] + self.v_x[i] * t_over)
+                self.r_y.append(0)
+                self.t.append(self.t[i] + t_over)
+                break
+    
+    def calculate2(self):
+        ###have air drag and effect of air desity
+        b2 = float(input('please input the constant number of air drag force(kg/m)\n'))
+        t0 = float(input('please input the sea level temperture(K)\n'))
+        alpha = 2.5
+        a = 0.0065
+        print("the constant number a is", a, "K/m", "the exponent alpha is", alpha )
+        
+        for i in range(self.nsteps):
+            tmpv = (self.v_x[i] ** 2 + self.v_y[i] ** 2) ** 0.5
+            k = (1 - a * self.r_y[i] / t0 ) ** alpha###k is the rate
+            tmpvx = self.v_x[i] + (- k * (b2 / self.m) * tmpv * self.v_x[i]) * self.dt
+            tmpvy = self.v_y[i] + (-10 - k * (b2 / self.m) * tmpv * self.v_y[i]) * self.dt
+            tmprx = self.r_x[i] + (tmpvx) * self.dt
+            tmpry = self.r_y[i] + (tmpvy) * self.dt
+            if tmpry > 0:
+                self.v_x.append(tmpvx)
+                self.v_y.append(tmpvy)
+                self.r_x.append(tmprx)
+                self.r_y.append(tmpry)
+                self.t.append(self.t[i] + self.dt)
+            else:
+                t_over = self.r_y[i] / self.v_y[i]
+                self.v_x.append(self.v_x[i])
+                self.v_y.append(self.v_y[i])
+                self.r_x.append(self.r_x[i] + self.v_x[i] * t_over)
+                self.r_y.append(0)
+                self.t.append(self.t[i] + t_over)
+                break
+    
+    
+    def show_results(self):
+        pl.plot(self.r_x, self.r_y)
+        pl.title('the trajectory of cannon shell')
+        pl.xlabel('x/m')
+        pl.ylabel('y/m')
+        pl.show()
+    def store_results(self):
+        myfile = open('the trajectory of the cannonshell .txt', 'w')
+        for i in range(len(self.t)):
+            print(self.t[i], self.v_x[i], self.v_y[i], self.r_x, self.r_y, file = myfile)
+        myfile.close()     
+
+
+
+'''
+-----------------------------
+        this is the main
+-----------------------------       
+'''
+shell1 = cannonshell()
+whe = int(input('if no air drag,please input 0, if have air drag but no effect of air desity,please input 1,\
+                 if have air drag and effect of air desity,please input 2\n'))
+if whe == 0:
+    shell1.calculate0()
+elif whe == 1:
+    shell1.calculate1()
+else :
+    shell1.calculate2()
+    
+shell1.show_results()
+shell1.store_results()
