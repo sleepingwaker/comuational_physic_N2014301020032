@@ -5,7 +5,7 @@
 - [x] [Exercise_03:moving and rotation](https://github.com/sleepingwaker/comuational_physic_N2014301020032/tree/master/exercise-03)  
 - [x] [Exercise_04:the decay of two kinds of particles](https://github.com/sleepingwaker/comuational_physic_N2014301020032/tree/master/Exercise_04)
 - [x] [Exercise_05:the trajectory of cannon shell](https://github.com/sleepingwaker/comuational_physic_N2014301020032/tree/master/exercise_05)
-- [ ] [Exercise_06:the cannon]()
+- [x] [Exercise_06:the cannon](https://github.com/sleepingwaker/comuational_physic_N2014301020032/tree/master/Exercise_06)
 - [ ] [Exercise_07:the spin of baseball and visual motion of base]()
 - [ ] [Exercise_08:non-linear oscillator]()
 - [ ] [Exercise_09:strange sttractor]()
