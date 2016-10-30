@@ -1,4 +1,4 @@
-/import pylab as pl
+import pylab as pl
 import math
 
 
